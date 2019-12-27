@@ -11,6 +11,8 @@ namespace MealplannerServer.Controllers
         public ActionResult Ping()
         {
             return Ok(new { Message = "pong!" });
+
+            return Ok();
         }
     }
 }
