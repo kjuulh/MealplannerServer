@@ -45,6 +45,7 @@ jobs:
         run: make integrationtest
   
   static-analysis:
+    needs: [build]
     name: SonarCloud Trigger
     runs-on: ubuntu-latest
     steps:
