@@ -43,19 +43,7 @@ jobs:
         run: make deps
       - name: Dotnet integrationtest
         run: make integrationtest
-  
-  static-analysis:
-    needs: [build]
-    name: SonarCloud Trigger
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  
+
   docker-build:
     runs-on: [ubuntu-latest]
     needs: [test, integrationtest, static-analysis]
