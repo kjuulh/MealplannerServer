@@ -52,6 +52,6 @@ jobs:
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: kjuulh/mealplanner-server
-          username: ${{ secrets.GITHUB_USERNAME }}
+          name: kjuulh/mealplannerserver
+          username: kjuulh
           password: ${{ secrets.GITHUB_TOKEN }}
