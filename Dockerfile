@@ -6,6 +6,7 @@ COPY *.sln .
 COPY MealplannerServer/*.csproj ./MealplannerServer/
 COPY MealplannerUnittests/*.csproj ./MealplannerUnittests/
 COPY MealplannerIntegrationtests/*.csproj ./MealplannerIntegrationtests/
+COPY MealplannerCore/*.csproj ./MealplannerCore/
 RUN dotnet restore
 
 # copy everything else and build app
