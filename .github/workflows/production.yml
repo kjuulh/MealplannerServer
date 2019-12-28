@@ -50,8 +50,7 @@ jobs:
 
       - name: Deploy
         run: |
-          gcloud run deploy 
+          gcloud run deploy $IMAGE
             --image gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" 
             --platform managed
             --region europe-west1
-            --service-name "$IMAGE"
