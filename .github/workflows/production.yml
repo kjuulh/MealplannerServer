@@ -44,6 +44,10 @@ jobs:
         run: |
           docker push gcr.io/$GKE_PROJECT/$IMAGE:$GITHUB_SHA
 
+      - name: Update gcloud
+        run: |
+          gcloud components update
+
       - name: Deploy
         run: |
           gcloud run deploy 
