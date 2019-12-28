@@ -52,6 +52,21 @@ namespace MealplannerServer
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>().UseSerilog(); });
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                var port = Environment.GetEnvironmentVariable("PORT");
+
+                if (!string.IsNullOrEmpty(port))
+                {
+                    var urls = new string[]
+                    {
+                        "http://*:" + port
+                    };
+
+                    webBuilder.UseUrls(urls);
+                }
+
+                webBuilder.UseStartup<Startup>().UseSerilog();
+            });
     }
 }
