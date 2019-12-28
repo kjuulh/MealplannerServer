@@ -44,11 +44,10 @@ jobs:
         run: |
           docker push gcr.io/$GKE_PROJECT/$IMAGE:$GITHUB_SHA
 
-      - name: Deploy service to Cloud Run
-        uses: stefda/action-cloud-run@1.0.0
-        with:
-          image: gcr.io/mealplanner/$IMAGE:$GITHUB_SHA
-          service: $IMAGE
-          project: mealplanner-263411
-          region: europe-west1
-          service key: ${{ secrets.GKE_KEY }}
+      - name: Deploy
+        run: |
+          gcloud run deploy 
+            --image gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" 
+            --platform managed
+            --region europe-west1
+            --service-name "$IMAGE"
