@@ -54,3 +54,4 @@ jobs:
             --image gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" \
             --platform managed \
             --region europe-west1
+            --project "$GKE_PROJECT"
