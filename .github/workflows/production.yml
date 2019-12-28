@@ -55,4 +55,5 @@ jobs:
             --platform managed \
             --region europe-west1 \
             --project "$GKE_PROJECT" \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --async
